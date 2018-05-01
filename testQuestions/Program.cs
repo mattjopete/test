@@ -1,4 +1,7 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection; 
+using testQuestions.Interfaces;
+using testQuestions.KadanesAlgorithm;
 
 namespace testQuestions
 {
@@ -6,7 +9,11 @@ namespace testQuestions
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var serviceProvider = new ServiceCollection().AddSingleton<ITest, KadaneSolverService>().BuildServiceProvider();
+
+            var testService = serviceProvider.GetService<ITest>();
+
+            testService.Run();
         }
     }
 }

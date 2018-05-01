@@ -6,7 +6,7 @@ using testQuestions.Interfaces;
 
 namespace testQuestions.KadanesAlgorithm
 {
-    public class KadaneSolver : ITest
+    public class KadaneSolverService : ITest
     {
         public int Sum(KadaneTestCase testCase)
         {
