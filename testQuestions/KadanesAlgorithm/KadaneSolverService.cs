@@ -56,5 +56,11 @@ namespace testQuestions.KadanesAlgorithm
                 yield return kadaneTestCase;
             }            
         }
+
+        public void HandleAppEnd()
+        {
+            Console.WriteLine("Enter any key to kill the program");
+            Console.ReadKey();
+        }
     }
 }

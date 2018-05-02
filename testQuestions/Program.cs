@@ -14,6 +14,7 @@ namespace testQuestions
             var testService = serviceProvider.GetService<ITest>();
 
             testService.Run();
+            testService.HandleAppEnd();
         }
     }
 }
