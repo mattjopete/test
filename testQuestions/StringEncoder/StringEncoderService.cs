@@ -28,7 +28,6 @@ namespace testQuestions.StringEncoder
 
         static string encode(string stringToEncode)
         {
-            //TODO: Refactor into dictionary once algorithm works
             if (string.IsNullOrEmpty(stringToEncode))
                 return string.Empty;
 
@@ -73,6 +72,66 @@ namespace testQuestions.StringEncoder
                     var digits = stringToEncode.Substring(i).TakeWhile(char.IsDigit).Reverse().ToArray();
                     encodedString += new string(digits);
                     i += digits.Length - 1;
+                }
+                else
+                {
+                    encodedString += stringToEncode[i];
+                }
+            }
+
+            return encodedString;
+        }
+
+        static string encodeViaDictionary(string stringToEncode)
+        {
+            if (string.IsNullOrEmpty(stringToEncode))
+                return string.Empty;
+
+            var encodingDictionary = new Dictionary<char, char>()
+            {
+                {'a', '1'},
+                {'e', '2'},
+                {'i', '3'},
+                {'o', '4'},
+                {'u', '5'},
+                {'y', ' '},
+                {' ', 'y'},
+                {'b', 'a'},
+                {'c', 'b'},
+                {'d', 'c'},
+                {'f', 'e'},
+                {'g', 'f'},
+                {'h', 'g'},
+                {'j', 'i'},
+                {'k', 'j'},
+                {'l', 'k'},
+                {'m', 'l'},
+                {'n', 'm'},
+                {'p', 'o'},
+                {'q', 'p'},
+                {'r', 'q'},
+                {'s', 'r'},
+                {'t', 's'},
+                {'v', 'u'},
+                {'w', 'v'},
+                {'x', 'w'},
+                {'z', 'y'},
+            };
+
+            string encodedString = string.Empty;
+
+            stringToEncode = stringToEncode.ToLower();
+            for (int i = 0; i < stringToEncode.Length; i++)
+            {
+                if (char.IsDigit(stringToEncode[i]))
+                {
+                    var digits = stringToEncode.Substring(i).TakeWhile(char.IsDigit).Reverse().ToArray();
+                    encodedString += new string(digits);
+                    i += digits.Length - 1;
+                }
+                else if(encodingDictionary.ContainsKey(stringToEncode[i]))
+                {
+                    encodedString += encodingDictionary[stringToEncode[i]];
                 }
                 else
                 {
