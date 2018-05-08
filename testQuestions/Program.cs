@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection; 
 using testQuestions.Interfaces;
 using testQuestions.KadanesAlgorithm;
+using testQuestions.StringEncoder;
 
 namespace testQuestions
 {
@@ -9,7 +10,7 @@ namespace testQuestions
     {
         static void Main(string[] args)
         {
-            var serviceProvider = new ServiceCollection().AddSingleton<ITest, KadaneSolverService>().BuildServiceProvider();
+            var serviceProvider = new ServiceCollection().AddSingleton<ITest, StringEncoderService>().BuildServiceProvider();
 
             var testService = serviceProvider.GetService<ITest>();
 
