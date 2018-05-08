@@ -19,38 +19,25 @@ namespace testQuestions.StringEncoder
 
         public void Run()
         {
-           // TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
-
             string stringToEncode = Console.ReadLine();
 
             string res = encode(stringToEncode);
 
-            //textWriter.WriteLine(res);
             Console.WriteLine(res);
-            //textWriter.Flush();
-            //textWriter.Close();
         }
 
         static string encode(string stringToEncode)
         {
             //TODO: Refactor into dictionary once algorithm works
-            if(string.IsNullOrEmpty(stringToEncode))
+            if (string.IsNullOrEmpty(stringToEncode))
                 return string.Empty;
-         
+
             string encodedString = string.Empty;
 
             stringToEncode = stringToEncode.ToLower();
-            for(int i = 0; i < stringToEncode.Length; i++)
-            {           
-                if(stringToEncode[i].Equals('y'))
-                {
-                    encodedString += ' ';
-                }
-                else if(stringToEncode[i].Equals(' '))
-                {
-                    encodedString += 'y';
-                }
-                else if(char.IsLetter(stringToEncode[i]) && "aeiou".Contains(stringToEncode[i]))
+            for (int i = 0; i < stringToEncode.Length; i++)
+            {
+                if ("aeiouy ".Contains(stringToEncode[i]))
                 {
                     switch (stringToEncode[i])
                     {
@@ -69,13 +56,19 @@ namespace testQuestions.StringEncoder
                         case 'u':
                             encodedString += '5';
                             break;
+                        case 'y':
+                            encodedString += ' ';
+                            break;
+                        case ' ':
+                            encodedString += 'y';
+                            break;
                     }
                 }
-                else if(char.IsLetter(stringToEncode[i]))
+                else if (char.IsLetter(stringToEncode[i]))
                 {
                     encodedString += (char)(stringToEncode[i] - 1);
                 }
-                else if(char.IsDigit(stringToEncode[i]))
+                else if (char.IsDigit(stringToEncode[i]))
                 {
                     var digits = stringToEncode.Substring(i).TakeWhile(char.IsDigit).Reverse().ToArray();
                     encodedString += new string(digits);
