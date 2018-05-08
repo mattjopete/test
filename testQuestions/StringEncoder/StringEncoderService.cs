@@ -123,19 +123,21 @@ namespace testQuestions.StringEncoder
             stringToEncode = stringToEncode.ToLower();
             for (int i = 0; i < stringToEncode.Length; i++)
             {
-                if (char.IsDigit(stringToEncode[i]))
+                var currentChar = stringToEncode[i];
+
+                if(encodingDictionary.ContainsKey(currentChar))
+                {
+                    encodedString += encodingDictionary[currentChar];
+                }
+                else if (char.IsDigit(currentChar))
                 {
                     var digits = stringToEncode.Substring(i).TakeWhile(char.IsDigit).Reverse().ToArray();
                     encodedString += new string(digits);
                     i += digits.Length - 1;
                 }
-                else if(encodingDictionary.ContainsKey(stringToEncode[i]))
-                {
-                    encodedString += encodingDictionary[stringToEncode[i]];
-                }
                 else
                 {
-                    encodedString += stringToEncode[i];
+                    encodedString += currentChar;
                 }
             }
 
