@@ -26,7 +26,6 @@ namespace testQuestions.StringEncoder
             Console.WriteLine(res);
         }
 
-
         static string encode(string stringToEncode)
         {
             if (string.IsNullOrEmpty(stringToEncode))
