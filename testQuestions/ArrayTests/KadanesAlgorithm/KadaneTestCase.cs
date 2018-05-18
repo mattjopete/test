@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 
-namespace testQuestions.KadanesAlgorithm
+namespace testQuestions.ArrayTests.KadanesAlgorithm
 {
     public class KadaneTestCase
     {

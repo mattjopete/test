@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using testQuestions.Interfaces;
 
-namespace testQuestions.KadanesAlgorithm
+namespace testQuestions.ArrayTests.KadanesAlgorithm
 {
     public class KadaneSolverService : ITest
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using testQuestions.Interfaces;
 
-namespace testQuestions.StringEncoder
+namespace testQuestions.StringTests.StringEncoder
 {
     public class StringEncoderService : ITest
     {

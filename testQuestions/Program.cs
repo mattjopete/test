@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection; 
 using testQuestions.Interfaces;
-using testQuestions.KadanesAlgorithm;
-using testQuestions.StringEncoder;
+using testQuestions.ArrayTests.KadanesAlgorithm;
+using testQuestions.StringTests.StringEncoder;
 
 namespace testQuestions
 {
