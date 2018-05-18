@@ -28,9 +28,6 @@ namespace testQuestions.StringEncoder
 
         static string encode(string stringToEncode)
         {
-            if (string.IsNullOrEmpty(stringToEncode))
-                return string.Empty;
-
             var encodingDictionary = new Dictionary<char, char>()
             {
                 {'a', '1'},
